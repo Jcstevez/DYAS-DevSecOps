@@ -2,7 +2,7 @@
 # Las imágenes base tienen versión fija; Dependabot (.github/dependabot.yml) propone las actualizaciones.
 
 # ---------- Etapa 1: compilar ----------
-FROM maven:3.9.16-eclipse-temurin-21-noble AS build
+FROM maven:3.9-eclipse-temurin-26-noble AS build
 WORKDIR /app
 
 # Primero solo el pom.xml: si las dependencias no cambian, Docker reutiliza esta capa.
