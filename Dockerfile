@@ -14,7 +14,7 @@ COPY src ./src
 RUN mvn -B -q -ntp package -DskipTests
 
 # ---------- Etapa 2: ejecutar ----------
-FROM eclipse-temurin:21.0.12.1_1-jre-noble
+FROM eclipse-temurin:24.0.2_12-jre-noble
 
 # Usuario sin privilegios con un UID fijo: el proceso no corre como root dentro del contenedor.
 RUN groupadd --system --gid 10001 reservas \
