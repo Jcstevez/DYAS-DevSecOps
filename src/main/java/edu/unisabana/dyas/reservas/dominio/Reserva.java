@@ -1,5 +1,6 @@
 package edu.unisabana.dyas.reservas.dominio;
 
+import org.springframework.util.StringUtils;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -57,7 +58,7 @@ public final class Reserva {
         validarSala(sala);
         validarResponsable(responsable);
         validarHorario(fecha, inicio, fin, hoy);
-        if (registradaPor == null || registradaPor.isBlank()) {
+        if (!StringUtils.hasText(registradaPor)) {
             throw new ReservaInvalidaException("Toda reserva debe indicar quién la registró");
         }
         return new Reserva(UUID.randomUUID(), sala, responsable, fecha, inicio, fin, registradaPor,
