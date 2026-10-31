@@ -57,4 +57,15 @@ class ArquitecturaTest {
             .adapter("persistencia", "..adaptadores.salida.persistencia..")
             .withOptionalLayers(true)
             .ignoreDependency(resideInAPackage("..configuracion.."), alwaysTrue());
-}
+
+    /**
+     * Regla 5 (propia): el dominio no escribe logs.
+     * Decidir como y donde se registran los eventos (por ejemplo la auditoria de cancelaciones, H-06 en
+     * docs/seguridad.md) es de las capas externas; el dominio solo lanza excepciones o devuelve resultados.
+     */
+    @ArchTest
+    static final ArchRule dominioNoUsaLibreriasDeLogs = noClasses()
+            .that().resideInAPackage("..dominio..")
+            .should().dependOnClassesThat()
+            .resideInAnyPackage("org.slf4j..", "java.util.logging..", "org.apache.logging..")
+            .because("el dominio no decide como ni donde se registran los eventos; eso es de las capas externas");}
