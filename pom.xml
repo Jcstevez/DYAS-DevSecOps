@@ -32,6 +32,11 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.9</version>
+    </dependency>
     <!-- API REST (Spring MVC + Tomcat embebido) y validación de entradas -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
