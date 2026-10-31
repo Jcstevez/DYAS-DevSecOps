@@ -3,4 +3,3 @@
 # Una línea sin registro cuenta como un control desactivado.
 #
 # Formato: <regla> <archivo>    # <hallazgo en docs/seguridad.md>
-java/spring-disabled-csrf-protection src/main/java/edu/unisabana/dyas/reservas/configuracion/SeguridadConfig.java    # H-01 (riesgo aceptado)
